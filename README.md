@@ -73,7 +73,7 @@
 
 在本仓库里：
 
-- `mini-chatgpt` 中，短期记忆就是 [`mini-chatgpt/src/cli.py`](Mini-ChatGPT/mini-chatgpt/src/cli.py) 里的 `history`
+- `mini-chatgpt` 中，短期记忆就是 [`mini-chatgpt/src/cli.py`](mini-chatgpt/src/cli.py) 里的 `history`
 - `mini-chatgpt-langgraph` 中，短期记忆由 LangGraph 的 `checkpointer` 按 `thread_id` 自动管理
 
 ## 4. 什么是长期记忆
@@ -106,7 +106,7 @@
 - `semantic`：语义记忆，记录稳定事实、偏好、身份、目标
 - `procedural`：程序性记忆，记录用户希望助手长期遵循的协作方式
 
-这部分规则主要写在两个项目的 [`prompts.py`](Mini-ChatGPT/mini-chatgpt/src/prompts.py) 和 [`mini-chatgpt-langgraph/src/prompts.py`](Mini-ChatGPT/mini-chatgpt-langgraph/src/prompts.py) 中。
+这部分规则主要写在两个项目的 [`prompts.py`](mini-chatgpt/src/prompts.py) 和 [`mini-chatgpt-langgraph/src/prompts.py`](mini-chatgpt-langgraph/src/prompts.py) 中。
 
 ## 5. ChatGPT 的核心逻辑
 
@@ -148,11 +148,11 @@
 
 目录：
 
-- [`mini-chatgpt/main.py`](Mini-ChatGPT/mini-chatgpt/main.py)
-- [`mini-chatgpt/src/cli.py`](Mini-ChatGPT/mini-chatgpt/src/cli.py)
-- [`mini-chatgpt/src/agent.py`](Mini-ChatGPT/mini-chatgpt/src/agent.py)
-- [`mini-chatgpt/src/store.py`](Mini-ChatGPT/mini-chatgpt/src/store.py)
-- [`mini-chatgpt/src/tools.py`](Mini-ChatGPT/mini-chatgpt/src/tools.py)
+- [`mini-chatgpt/main.py`](mini-chatgpt/main.py)
+- [`mini-chatgpt/src/cli.py`](mini-chatgpt/src/cli.py)
+- [`mini-chatgpt/src/agent.py`](mini-chatgpt/src/agent.py)
+- [`mini-chatgpt/src/store.py`](mini-chatgpt/src/store.py)
+- [`mini-chatgpt/src/tools.py`](mini-chatgpt/src/tools.py)
 
 ### 7.1 它是怎么工作的
 
@@ -168,11 +168,11 @@
 
 ### 7.2 关键代码阅读顺序
 
-1. 看入口 [`mini-chatgpt/main.py`](Mini-ChatGPT/mini-chatgpt/main.py)
-2. 看交互循环 [`mini-chatgpt/src/cli.py`](Mini-ChatGPT/mini-chatgpt/src/cli.py)
-3. 看主逻辑 [`mini-chatgpt/src/agent.py`](Mini-ChatGPT/mini-chatgpt/src/agent.py)
-4. 看长期记忆存储 [`mini-chatgpt/src/store.py`](Mini-ChatGPT/mini-chatgpt/src/store.py)
-5. 看模型如何调用记忆工具 [`mini-chatgpt/src/tools.py`](Mini-ChatGPT/mini-chatgpt/src/tools.py)
+1. 看入口 [`mini-chatgpt/main.py`](mini-chatgpt/main.py)
+2. 看交互循环 [`mini-chatgpt/src/cli.py`](mini-chatgpt/src/cli.py)
+3. 看主逻辑 [`mini-chatgpt/src/agent.py`](mini-chatgpt/src/agent.py)
+4. 看长期记忆存储 [`mini-chatgpt/src/store.py`](mini-chatgpt/src/store.py)
+5. 看模型如何调用记忆工具 [`mini-chatgpt/src/tools.py`](mini-chatgpt/src/tools.py)
 
 ### 7.3 建议重点观察
 
@@ -190,11 +190,11 @@
 
 目录：
 
-- [`mini-chatgpt-langgraph/main.py`](Mini-ChatGPT/mini-chatgpt-langgraph/main.py)
-- [`mini-chatgpt-langgraph/src/agent.py`](Mini-ChatGPT/mini-chatgpt-langgraph/src/agent.py)
-- [`mini-chatgpt-langgraph/src/store.py`](Mini-ChatGPT/mini-chatgpt-langgraph/src/store.py)
-- [`mini-chatgpt-langgraph/src/cli.py`](Mini-ChatGPT/mini-chatgpt-langgraph/src/cli.py)
-- [`mini-chatgpt-langgraph/src/tools.py`](Mini-ChatGPT/mini-chatgpt-langgraph/src/tools.py)
+- [`mini-chatgpt-langgraph/main.py`](mini-chatgpt-langgraph/main.py)
+- [`mini-chatgpt-langgraph/src/agent.py`](mini-chatgpt-langgraph/src/agent.py)
+- [`mini-chatgpt-langgraph/src/store.py`](mini-chatgpt-langgraph/src/store.py)
+- [`mini-chatgpt-langgraph/src/cli.py`](mini-chatgpt-langgraph/src/cli.py)
+- [`mini-chatgpt-langgraph/src/tools.py`](mini-chatgpt-langgraph/src/tools.py)
 
 ### 8.1 它是怎么工作的
 
@@ -210,11 +210,11 @@
 
 ### 8.2 关键代码阅读顺序
 
-1. 看入口 [`mini-chatgpt-langgraph/main.py`](Mini-ChatGPT/mini-chatgpt-langgraph/main.py)
-2. 看 Graph 定义和 `chat()` 节点 [`mini-chatgpt-langgraph/src/agent.py`](Mini-ChatGPT/mini-chatgpt-langgraph/src/agent.py)
-3. 看长期记忆存储 [`mini-chatgpt-langgraph/src/store.py`](Mini-ChatGPT/mini-chatgpt-langgraph/src/store.py)
-4. 看命令行如何切换会话 [`mini-chatgpt-langgraph/src/cli.py`](Mini-ChatGPT/mini-chatgpt-langgraph/src/cli.py)
-5. 看记忆工具 [`mini-chatgpt-langgraph/src/tools.py`](Mini-ChatGPT/mini-chatgpt-langgraph/src/tools.py)
+1. 看入口 [`mini-chatgpt-langgraph/main.py`](mini-chatgpt-langgraph/main.py)
+2. 看 Graph 定义和 `chat()` 节点 [`mini-chatgpt-langgraph/src/agent.py`](mini-chatgpt-langgraph/src/agent.py)
+3. 看长期记忆存储 [`mini-chatgpt-langgraph/src/store.py`](mini-chatgpt-langgraph/src/store.py)
+4. 看命令行如何切换会话 [`mini-chatgpt-langgraph/src/cli.py`](mini-chatgpt-langgraph/src/cli.py)
+5. 看记忆工具 [`mini-chatgpt-langgraph/src/tools.py`](mini-chatgpt-langgraph/src/tools.py)
 
 ### 8.4 建议重点观察
 
@@ -369,9 +369,9 @@ streamlit run main.py
 
 ## 附：建议重点读的文件
 
-- [`mini-chatgpt/src/agent.py`](Mini-ChatGPT/mini-chatgpt/src/agent.py)
-- [`mini-chatgpt/src/store.py`](Mini-ChatGPT/mini-chatgpt/src/store.py)
-- [`mini-chatgpt-langgraph/src/agent.py`](Mini-ChatGPT/mini-chatgpt-langgraph/src/agent.py)
-- [`mini-chatgpt-langgraph/src/store.py`](Mini-ChatGPT/mini-chatgpt-langgraph/src/store.py)
+- [`mini-chatgpt/src/agent.py`](mini-chatgpt/src/agent.py)
+- [`mini-chatgpt/src/store.py`](mini-chatgpt/src/store.py)
+- [`mini-chatgpt-langgraph/src/agent.py`](mini-chatgpt-langgraph/src/agent.py)
+- [`mini-chatgpt-langgraph/src/store.py`](mini-chatgpt-langgraph/src/store.py)
 
 如果你要做一次分享或授课，这四个文件基本就是整场内容的主线。
