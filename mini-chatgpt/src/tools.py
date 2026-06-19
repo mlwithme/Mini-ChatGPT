@@ -55,7 +55,7 @@ def build_upsert_memory_tool(
         user_id: str,
 ) -> StructuredTool:
     """把本地 JSON 存储绑定成一个可被模型调用的工具。"""
-    logger.debug(f"调用记忆写入工具: user_id={user_id}")
+    logger.debug(f"构造记忆写入工具: user_id={user_id}")
 
     # 这个内部函数把 `store` 和 `user_id` 闭包进去，
     # 因此模型只需要提供真正的记忆内容和上下文即可。

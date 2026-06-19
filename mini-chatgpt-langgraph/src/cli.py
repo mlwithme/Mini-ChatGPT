@@ -86,9 +86,6 @@ def run_cli(
             thread_id = user_text.split(maxsplit=1)[1].strip()
             logger.info(f"已切换到会话：{thread_id}")
             continue
-        if user_text == "/memories":
-            _print_memories(memory_store, args.user_id)
-            continue
         if user_text == "/id":
             logger.info(f"当前会话ID: {thread_id}")
             continue

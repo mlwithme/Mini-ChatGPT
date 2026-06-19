@@ -15,7 +15,6 @@ class Context:
         },
     )
 
-    # 这个目录用于存放本地 JSON 记忆文件。
     thread_id: str = field(
         default="demo_user_001",
         metadata={

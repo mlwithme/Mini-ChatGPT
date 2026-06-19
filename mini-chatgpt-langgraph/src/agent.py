@@ -44,10 +44,11 @@ def message_text(message: AIMessage) -> str:
     return str(message.content).strip()
 
 
-def chat(state: MessagesState, runtime: Runtime[Context]) -> MessagesState:
+def chat(state: MessagesState, runtime: Runtime[Context], config: RunnableConfig) -> MessagesState:
     user_text = state["messages"][-1].content  # 取当前用户的输入
+    search_memory_limit = config['configurable'].get("search_memory_limit")
     memory_store = PostgresMemoryStore(runtime.store, runtime.context.memory_root)
-    memory_hits = memory_store.search(runtime.context.user_id, user_text)  # 搜索历史记忆
+    memory_hits = memory_store.search(runtime.context.user_id, user_text, search_memory_limit)  # 搜索历史记忆
     system_prompt = SYSTEM_PROMPT.format(
         user_info=_format_memories(memory_hits),
         time=datetime.now().isoformat(timespec="seconds"),
@@ -101,7 +102,8 @@ def invoke_agent(
         memory_root: str,
 ) -> str:
     input_data = {"messages": convert_to_messages([{"role": "user", "content": user_text}])}
-    config = RunnableConfig({"configurable": {"thread_id": thread_id}})  # 这个 thread_id 是供 LangGraph 内部使用，例如保存短期记忆、快照等
+    config = RunnableConfig({"configurable": {"thread_id": thread_id,
+                                              "search_memory_limit": 10}})  # 这个 thread_id 是供 LangGraph 内部使用，例如保存短期记忆、快照等
     result = agent.invoke(
         input_data,
         config=config,

@@ -55,7 +55,7 @@ def build_postgres_memory_tool(
         store: PostgresMemoryStore,
         chat_context: Context,
 ) -> StructuredTool:
-    logger.debug(f"调用记忆写入工具: user_id={chat_context.user_id}")
+    logger.debug(f"构造记忆写入工具: user_id={chat_context.user_id}")
 
     def _upsert_memory(
             content: str,

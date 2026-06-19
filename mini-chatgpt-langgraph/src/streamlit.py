@@ -158,9 +158,7 @@ def run_streamlit_app(
                 )
 
         with st.expander("长期记忆", expanded=False):
-            memories = memory_store.list_memories(
-                st.session_state.user_id
-            )
+            memories = memory_store.list_memories(st.session_state.user_id)
             if not memories:
                 st.caption("暂无长期记忆")
             for memory in memories:

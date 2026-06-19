@@ -333,7 +333,6 @@ class PostgresMemoryStore:
         return str(value or "")
 
 
-# 指定模块对外公开的主要类型。
 __all__ = [
     "PostgresMemoryStore",
     "MemoryRecord",

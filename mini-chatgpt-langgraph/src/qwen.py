@@ -1,14 +1,8 @@
 """封装通过 DashScope 调用 Qwen 模型的辅助函数。"""
 
-# 延迟解析类型注解。
 from __future__ import annotations
-
-# 标准日志模块，用于记录 Qwen 模型初始化。
 import logging
-# 从环境变量中读取 API Key。
 import os
-
-# 自动读取 `.env` 文件，方便本地教学演示。
 from dotenv import load_dotenv
 # DashScope 的向量模型封装，用于记忆检索。
 from langchain_community.embeddings import DashScopeEmbeddings
@@ -52,10 +46,10 @@ def get_embeddings_model(model: str = DEFAULT_EMBEDDING_MODEL) -> DashScopeEmbed
 
 
 def get_llm_model(
-    model: str = DEFAULT_CHAT_MODEL,
-    *,
-    temperature: float = 0.3,
-    base_url: str = DEFAULT_BASE_URL,
+        model: str = DEFAULT_CHAT_MODEL,
+        *,
+        temperature: float = 0.3,
+        base_url: str = DEFAULT_BASE_URL,
 ) -> ChatOpenAI:
     """创建本地记忆助手使用的聊天模型。"""
     # 先读取并校验 API Key。
@@ -70,7 +64,6 @@ def get_llm_model(
     )
 
 
-# 显式声明模块的公开接口。
 __all__ = [
     "DEFAULT_CHAT_MODEL",
     "DEFAULT_EMBEDDING_MODEL",
