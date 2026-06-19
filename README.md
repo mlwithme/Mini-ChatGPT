@@ -113,9 +113,9 @@
 
 | 版本 | 短期记忆 | 长期记忆 | 适合学习什么 |
 | --- | --- | --- | --- |
-| `mini-chatgpt` | 手动 `history` | 本地 JSON | 记忆型 ChatGPT 最小原理 |
+| `mini-chatgpt` | 手动 `history` | 本地 JSON | 从零实现记忆型 ChatGPT 最小原理 |
 | `mini-chatgpt-langgraph` | `PostgresSaver` | `PostgresStore` | LangGraph 状态图和工程化状态管理 |
-| `mini-chatgpt-agent` | `checkpointer` | `PostgresStore` | LangChain `create_agent` 高层封装 |
+| `mini-chatgpt-agent` | `PostgresSaver` | `PostgresStore` | LangChain 中 `create_agent` 高层封装 |
 
 建议阅读顺序：
 
